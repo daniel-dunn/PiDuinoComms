@@ -24,6 +24,7 @@ void loop() {
       counter--;
     }
     Serial.print(counter);
+    Serial.print("\n");
   }
   aLastState = aState;
 }
