@@ -15,10 +15,11 @@ class App(tk.Tk):
         self.textbox.after(100, self.ReadSerial)
 
     def ReadSerial(self):
-        input = ser.readline()
-        text = input.decode('utf-8').rstrip()
-        self.textbox.insert(tk.INSERT, text + ',')
-        self.textbox.pack()
+        if(ser.in_waiting > 0):
+            input = ser.readline()
+            text = input.decode('utf-8').rstrip()
+            self.textbox.insert(tk.INSERT, text + ',')
+            self.textbox.pack()
         self.textbox.after(100, self.ReadSerial)
 
 
