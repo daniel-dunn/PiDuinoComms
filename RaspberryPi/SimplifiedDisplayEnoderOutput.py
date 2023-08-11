@@ -1,14 +1,16 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import scrolledtext
+import tkinter
 import serial
+from tkinter import filedialog
 
 
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Display Serial Output From Arduino")
-        self.geometry('600x300+100+100')
+      
 
 
         self.save_button = Button(self,text = "Save", command = self.save_text)
@@ -40,13 +42,20 @@ class App(tk.Tk):
         self.textbox.after(100, self.ReadSerial)
 
     def save_text(self):
-        print
+        print("save pressed")
+        textBoxContents = self.textbox.get("1.0", tk.END)
+        print(textBoxContents)
+        file = filedialog.asksaveasfile(title = "Save File", defaultextension=".txt")
+
+        if file:
+            file.write(textBoxContents)
+            file.close()
 
     def clear_text(self):
-        print 
-
-
-
+        print ("clear pressed")
+        self.textbox.delete("1.0", tk.END)
+        
+        
 
 if __name__ == "__main__":
     app = App()
