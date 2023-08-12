@@ -6,11 +6,11 @@ Skills/Principles Used
 - Hardware Input Detection
 - Serial Communication
 - GUI Programming
+- File I/O
 - Multithreading
 
 In the current version, I have used a asynchonous call to the inbound Serial comms from the Arduino board and display it in a
-tkinters label.
+tkinters scrollable text area. There are also buttons enabling the window to be cleared or the contents saved to a file.
 
-Points for extention could be the continuos print into a textbox to act as a serial montitor with an option to save to a
-text file.
+
   
